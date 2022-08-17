@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
     images: [],
   };
 
-  fs.writeFileSync(
+  fs.writeFile(
     `${__dirname}/public/data.json`,
     JSON.stringify(newData),
     (err) => {
@@ -135,7 +135,7 @@ app.post("/", async (req, res) => {
   };
 
   const myWriteFunction = async () => {
-    await fs.writeFileSync(
+    await fs.writeFile(
       `${__dirname}/public/data.json`,
       JSON.stringify(newData),
       (err) => {
