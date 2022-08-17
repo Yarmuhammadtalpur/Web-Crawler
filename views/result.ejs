@@ -13,12 +13,11 @@
           </h1>
         </div>
         <h3 class="">
-          <span class="url_link">URL: </span
-          ><a href="<%= data.webUrl %>"><%= data.webUrl %></a>
+          <span class="url_link">URL: </span><a href="<%= url %>"><%= url %></a>
         </h3>
       </div>
       <div class="webname">
-        <h3><%= data.WebTitle %></h3>
+        <h3><%= WebTitle%></h3>
       </div>
       <div class="btn_tag-container">
         <div
@@ -65,6 +64,8 @@
       </div>
       <div class="b-example-divider"></div>
 
+      <!-- row end -->
+
       <div class="row">
         <!-- column start -->
 
@@ -79,7 +80,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.a.forEach(item => { %>
+                <% aLinks.forEach(item => { %>
                 <tr>
                   <td><%= item.title %></td>
                   <td><a href="<%= item.href %>"> <%= item.href %> </a></td>
@@ -108,7 +109,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h1.forEach(item => { %>
+                <% h1.forEach(item => { %>
                 <tr>
                   <td>&lt;h1&gt;</td>
                   <td><%= item %></td>
@@ -121,7 +122,6 @@
         <!-- column end -->
       </div>
       <!-- row end -->
-
       <div class="b-example-divider"></div>
 
       <div class="row">
@@ -137,7 +137,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h2.forEach(item => { %>
+                <% h2.forEach(item => { %>
                 <tr>
                   <td>&lt;h2&gt;</td>
                   <td><%= item %></td>
@@ -166,7 +166,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h3.forEach(item => { %>
+                <% h3.forEach(item => { %>
                 <tr>
                   <td>&lt;h3&gt;</td>
                   <td><%= item %></td>
@@ -195,7 +195,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h4.forEach(item => { %>
+                <% h4.forEach(item => { %>
                 <tr>
                   <td>&lt;h4&gt;</td>
                   <td><%= item %></td>
@@ -224,7 +224,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h5.forEach(item => { %>
+                <% h5.forEach(item => { %>
                 <tr>
                   <td>&lt;h5&gt;</td>
                   <td><%= item %></td>
@@ -253,7 +253,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.h6.forEach(item => { %>
+                <% h6.forEach(item => { %>
                 <tr>
                   <td>&lt;h6&gt;</td>
                   <td><%= item %></td>
@@ -282,7 +282,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.p.forEach(item => { %>
+                <% p.forEach(item => { %>
                 <tr>
                   <td>&lt;p&gt;</td>
                   <td><%= item %></td>
@@ -311,7 +311,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.li.forEach(item => { %>
+                <% li.forEach(item => { %>
                 <tr>
                   <td>&lt;li&gt;</td>
                   <td><%= item %></td>
@@ -340,7 +340,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.button.forEach(item => { %>
+                <% button.forEach(item => { %>
                 <tr>
                   <td>&lt;button&gt;</td>
                   <td><%= item %></td>
@@ -368,10 +368,11 @@
                   <th>Title</th>
                   <th>Src</th>
                   <th>Preview</th>
+                  <th>Backup Preview</th>
                 </tr>
               </thead>
               <tbody>
-                <% data.images.forEach(item => { %>
+                <% img.forEach(item => { %>
                 <tr>
                   <td>&lt;img&gt;</td>
                   <td><%= item.title %></td>
@@ -379,6 +380,13 @@
                   <td>
                     <img
                       src="<%= item.fullSrc %>"
+                      class="imgTt"
+                      alt="<%= item.title %>"
+                    />
+                  </td>
+                  <td>
+                    <img
+                      src="<%= item.src %>"
                       class="imgTt"
                       alt="<%= item.title %>"
                     />
@@ -391,7 +399,6 @@
         </div>
         <!-- column end -->
       </div>
-      <!-- row end -->
     </div>
     <br />
     <%- include('partials/footer') %>

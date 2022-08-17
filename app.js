@@ -17,29 +17,38 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //
 let url;
+let WebTitle;
+let aLinks = [{ title: "", href: "" }];
+let h1 = [];
+let h2 = [];
+let h3 = [];
+let h4 = [];
+let h5 = [];
+let h6 = [];
+let p = [];
+let li = [];
+let td = [];
+let button = [];
+let img = [];
 app.get("/", (req, res) => {
   res.render("search");
 });
 
 app.post("/", async (req, res) => {
-  let aLinks = [{ title: "", href: "" }];
-  let h1 = [];
-  let h2 = [];
-  let h3 = [];
-  let h4 = [];
-  let h5 = [];
-  let h6 = [];
-  let p = [];
-  let li = [];
-  let td = [];
-  let button = [];
-  let img = [
-    {
-      title: "",
-      src: "",
-      fullSrc: "",
-    },
-  ];
+  url;
+  WebTitle;
+  aLinks = [{ title: "", href: "" }];
+  h1 = [];
+  h2 = [];
+  h3 = [];
+  h4 = [];
+  h5 = [];
+  h6 = [];
+  p = [];
+  li = [];
+  td = [];
+  button = [];
+  img = [];
 
   url = req.body.url_link;
   let html;
@@ -93,44 +102,33 @@ app.post("/", async (req, res) => {
   $("td").each(function (i, props) {
     td.push($(props).text());
   });
-  const newData = {
-    webUrl: url,
-    WebTitle: $("title").text(),
-    a: aLinks,
-    h1: h1,
-    h2: h2,
-    h3: h3,
-    h4: h4,
-    h5: h5,
-    h6: h6,
-    p: p,
-    li: li,
-    button: button,
-    images: img,
-  };
 
-  const myWriteFunction = async () => {
-    await fs.writeFileSync(
-      `${__dirname}/public/data.json`,
-      JSON.stringify(newData),
-      (err) => {
-        if (err) throw err;
-        console.log("writing done");
-      }
-    );
-  };
-  myWriteFunction();
+  WebTitle = $("title").text();
   res.redirect("/done");
 });
 
 app.get("/done", (req, res) => {
-  console.log(url);
   res.render("done", { url });
 });
 
 //next path
 app.get("/result", (req, res) => {
-  res.render("result", { data });
+  res.render("result", {
+    url,
+    WebTitle,
+    aLinks,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    td,
+    button,
+    img,
+  });
 });
 
 app.listen(port, () => {
