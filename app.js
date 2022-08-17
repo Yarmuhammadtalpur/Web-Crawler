@@ -19,31 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 let url;
 app.get("/", (req, res) => {
   res.render("search");
-
-  const newData = {
-    webUrl: "none",
-    WebTitle: "none",
-    a: [],
-    h1: [],
-    h2: [],
-    h3: [],
-    h4: [],
-    h5: [],
-    h6: [],
-    p: [],
-    li: [],
-    button: [],
-    images: [],
-  };
-
-  fs.writeFile(
-    `${__dirname}/public/data.json`,
-    JSON.stringify(newData),
-    (err) => {
-      if (err) throw err;
-      console.log("writing done");
-    }
-  );
 });
 
 app.post("/", async (req, res) => {
@@ -135,7 +110,7 @@ app.post("/", async (req, res) => {
   };
 
   const myWriteFunction = async () => {
-    await fs.writeFile(
+    await fs.writeFileSync(
       `${__dirname}/public/data.json`,
       JSON.stringify(newData),
       (err) => {
