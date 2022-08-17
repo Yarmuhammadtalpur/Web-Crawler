@@ -355,7 +355,6 @@
       <!-- row end -->
 
       <div class="b-example-divider"></div>
-
       <div class="row">
         <!-- column start -->
         <div class="col">
@@ -399,6 +398,37 @@
         </div>
         <!-- column end -->
       </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;meta&gt; tag</h2>
+            <table id="metaTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Title</th>
+                  <th>Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% meta.forEach(item => { %>
+                <tr>
+                  <td>&lt;meta&gt;</td>
+                  <td><%= item.name %></td>
+                  <td><%= item.content %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
     </div>
     <br />
     <%- include('partials/footer') %>
@@ -417,6 +447,7 @@
       $("#liTag").DataTable();
       $("#buttonTag").DataTable();
       $("#imgTag").DataTable();
+      $("#metaTag").DataTable();
     });
   </script>
 </html>

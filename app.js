@@ -29,6 +29,7 @@ let p = [];
 let li = [];
 let td = [];
 let button = [];
+let meta = [];
 let img = [];
 app.get("/", (req, res) => {
   res.render("search");
@@ -47,6 +48,7 @@ app.post("/", async (req, res) => {
   p = [];
   li = [];
   td = [];
+  meta = [];
   button = [];
   img = [];
 
@@ -102,6 +104,14 @@ app.post("/", async (req, res) => {
   $("td").each(function (i, props) {
     td.push($(props).text());
   });
+  $("meta").each(function (i, props) {
+    console.log($(props).attr());
+
+    const metaCon = { name: "", content: "" };
+    metaCon.name = $(props).attr("name");
+    metaCon.content = $(props).attr("content");
+    meta.push(metaCon);
+  });
 
   WebTitle = $("title").text();
   res.redirect("/done");
@@ -128,6 +138,7 @@ app.get("/result", (req, res) => {
     td,
     button,
     img,
+    meta,
   });
 });
 
