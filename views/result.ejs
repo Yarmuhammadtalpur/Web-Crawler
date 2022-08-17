@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header') %>
+  <body class="background-image">
+    <div class="container">
+      <div class="header_all">
+        <div class="heading-container">
+          <h1 class="heading search-result">
+            Crawled Result
+            <a href="/">
+              <img id="#top" src="/crawler.png" class="img-fluid web-crawler"
+            /></a>
+          </h1>
+        </div>
+        <h3 class="">
+          <span class="url_link">URL: </span
+          ><a href="<%= data.webUrl %>"><%= data.webUrl %></a>
+        </h3>
+      </div>
+      <div class="webname">
+        <h3><%= data.WebTitle %></h3>
+      </div>
+      <div class="btn_tag-container">
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic mixed styles example"
+        >
+          <a href="#top" type="button" class="btn btn-warning border_right"
+            >Back TO Top</a
+          >
+
+          <a href="#aTag" type="button" class="btn btn-primary">&lt;a&gt;</a>
+          <a href="#pTag" type="button" class="btn btn-primary border_left"
+            >&lt;p&gt;</a
+          >
+          <a href="#imgTag" type="button" class="btn btn-primary border_left"
+            >&lt;img&gt;</a
+          >
+          <a href="#h1Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h1&gt;</a
+          >
+          <a href="#h2Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h2&gt;</a
+          >
+          <a href="#h3Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h3&gt;</a
+          >
+          <a href="#h4Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h4&gt;</a
+          >
+          <a href="#h5Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h5&gt;</a
+          >
+          <a href="#h6Tag" type="button" class="btn btn-primary border_left"
+            >&lt;h6&gt;</a
+          >
+          <a href="#buttonTag" type="button" class="btn btn-primary border_left"
+            >&lt;button&gt;</a
+          >
+          <a href="#liTag" type="button" class="btn btn-primary border_left"
+            >&lt;li&gt;</a
+          >
+        </div>
+      </div>
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;a&gt; tag Links</h2>
+            <table id="aTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Href</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.a.forEach(item => { %>
+                <tr>
+                  <td><%= item.title %></td>
+                  <td><a href="<%= item.href %>"> <%= item.href %> </a></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h1&gt; tag</h2>
+            <table id="h1Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h1.forEach(item => { %>
+                <tr>
+                  <td>&lt;h1&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h2&gt; tag</h2>
+            <table id="h2Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h2.forEach(item => { %>
+                <tr>
+                  <td>&lt;h2&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h3&gt; tag</h2>
+            <table id="h3Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h3.forEach(item => { %>
+                <tr>
+                  <td>&lt;h3&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h4&gt; tag</h2>
+            <table id="h4Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h4.forEach(item => { %>
+                <tr>
+                  <td>&lt;h4&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h5&gt; tag</h2>
+            <table id="h5Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h5.forEach(item => { %>
+                <tr>
+                  <td>&lt;h5&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;h6&gt; tag</h2>
+            <table id="h6Tag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.h6.forEach(item => { %>
+                <tr>
+                  <td>&lt;h6&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;p&gt; tag</h2>
+            <table id="pTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.p.forEach(item => { %>
+                <tr>
+                  <td>&lt;p&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;li&gt; tag</h2>
+            <table id="liTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.li.forEach(item => { %>
+                <tr>
+                  <td>&lt;li&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;button&gt; tag</h2>
+            <table id="buttonTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.button.forEach(item => { %>
+                <tr>
+                  <td>&lt;button&gt;</td>
+                  <td><%= item %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+
+      <div class="b-example-divider"></div>
+
+      <div class="row">
+        <!-- column start -->
+        <div class="col">
+          <div class="table-responsive-md">
+            <h2>&lt;img&gt; tag</h2>
+            <table id="imgTag" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Title</th>
+                  <th>Src</th>
+                  <th>Preview</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.images.forEach(item => { %>
+                <tr>
+                  <td>&lt;img&gt;</td>
+                  <td><%= item.title %></td>
+                  <td><%= item.src %></td>
+                  <td>
+                    <img
+                      src="<%= item.fullSrc %>"
+                      class="imgTt"
+                      alt="<%= item.title %>"
+                    />
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- column end -->
+      </div>
+      <!-- row end -->
+    </div>
+    <br />
+    <%- include('partials/footer') %>
+  </body>
+
+  <script>
+    $(document).ready(function () {
+      $("#h1Tag").DataTable();
+      $("#h2Tag").DataTable();
+      $("#h3Tag").DataTable();
+      $("#h4Tag").DataTable();
+      $("#h5Tag").DataTable();
+      $("#h6Tag").DataTable();
+      $("#pTag").DataTable();
+      $("#aTag").DataTable();
+      $("#liTag").DataTable();
+      $("#buttonTag").DataTable();
+      $("#imgTag").DataTable();
+    });
+  </script>
+</html>
