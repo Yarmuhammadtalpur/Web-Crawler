@@ -5,7 +5,7 @@ const port = process.env.PORT;
 const fs = require("fs");
 const axios = require("axios");
 const cheerio = require("cheerio");
-const rawdata = fs.readFileSync(`${__dirname}/data.json`);
+const rawdata = fs.readFileSync(`${__dirname}/public/data.json`);
 const data = JSON.parse(rawdata);
 const { v4: uuidv4 } = require("uuid");
 const { response } = require("express");
@@ -36,10 +36,14 @@ app.get("/", (req, res) => {
     images: [],
   };
 
-  fs.writeFileSync("data.json", JSON.stringify(newData), (err) => {
-    if (err) throw err;
-    console.log("writing done");
-  });
+  fs.writeFileSync(
+    `${__dirname}/public/data.json`,
+    JSON.stringify(newData),
+    (err) => {
+      if (err) throw err;
+      console.log("writing done");
+    }
+  );
 });
 
 app.post("/", async (req, res) => {
@@ -132,7 +136,7 @@ app.post("/", async (req, res) => {
 
   const myWriteFunction = async () => {
     await fs.writeFileSync(
-      `${__dirname}/data.json`,
+      `${__dirname}/public/data.json`,
       JSON.stringify(newData),
       (err) => {
         if (err) throw err;
