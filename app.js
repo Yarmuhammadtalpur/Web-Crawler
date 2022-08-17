@@ -130,10 +130,17 @@ app.post("/", async (req, res) => {
     images: img,
   };
 
-  fs.writeFileSync(`${__dirname}/data.json`, JSON.stringify(newData), (err) => {
-    if (err) throw err;
-    console.log("writing done");
-  });
+  const myWriteFunction = async () => {
+    await fs.writeFileSync(
+      `${__dirname}/data.json`,
+      JSON.stringify(newData),
+      (err) => {
+        if (err) throw err;
+        console.log("writing done");
+      }
+    );
+  };
+  myWriteFunction();
   res.redirect("/done");
 });
 
